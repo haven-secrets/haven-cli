@@ -8,9 +8,9 @@ const createProjectCli = async () => {
       name: "projectName",
       message: "What would you like your project named?",
       validate: (projectName) =>
-        /\s/.test(projectName)
-          ? `Project Name Cannot Contain White Space`
-          : true,
+        /^\S+$/i.test(projectName)
+          ? true
+          : `Project name cannot contain white space`,
     });
 
     createProject(response.projectName);

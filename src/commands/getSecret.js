@@ -11,7 +11,7 @@ const getSecretCli = async () => {
         validate: (projectName) =>
           /^\S+$/i.test(projectName)
             ? true
-            : `Project Name Cannot Contain White Space`,
+            : `Project name cannot contain white space`,
       },
       {
         type: "text",
@@ -20,7 +20,7 @@ const getSecretCli = async () => {
         validate: (environment) =>
           /^(dev|stg|prod)$/i.test(environment)
             ? true
-            : `Environment Must Be Either Dev, Stg, Or Prod`,
+            : `Environment must be either dev, stg, or prod`,
       },
       {
         type: "text",
@@ -29,7 +29,7 @@ const getSecretCli = async () => {
         validate: (secretName) =>
           /^\S+$/i.test(secretName)
             ? true
-            : `Project Name Cannot Contain White Space`,
+            : `Secret name cannot contain white space`,
       },
       {
         type: "text",
