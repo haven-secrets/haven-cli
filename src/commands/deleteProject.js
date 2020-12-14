@@ -8,9 +8,9 @@ const deleteProjectCli = async () => {
       name: "projectName",
       message: "What project would you like to delete?",
       validate: (projectName) =>
-        /\s/.test(projectName)
-          ? `Project Name Cannot Contain White Space`
-          : true,
+        /^\S+$/i.test(projectName)
+          ? true
+          : `Project name cannot contain white space`,
     });
 
     deleteProject(response.projectName);

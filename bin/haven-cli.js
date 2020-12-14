@@ -18,6 +18,7 @@ import {
 import fetchLogsCli from "../src/commands/fetchLogs.js";
 import createProjectCli from "../src/commands/createProject.js";
 import deleteProjectCli from "../src/commands/deleteProject.js";
+import getSecretCli from "../src/commands/getSecret.js";
 
 program.version("0.0.1");
 
@@ -59,6 +60,16 @@ program
   .description("Fetch all access logs")
   .action(() => {
     fetchLogsCli();
+  });
+
+program
+  .command("g")
+  .alias("getSecret")
+  .description(
+    "Get latest secret version by default or specify specific version"
+  )
+  .action(() => {
+    getSecretCli();
   });
 
 program.parse(process.argv);
