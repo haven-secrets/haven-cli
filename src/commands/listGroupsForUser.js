@@ -11,7 +11,8 @@ const listGroupsForUserCli = async () => {
         /^\S+$/i.test(userName) ? true : `User name cannot contain white space`,
     });
 
-    listGroupsForUser(response.userName);
+    const groups = await listGroupsForUser(response.userName);
+    console.log(groups);
   })();
 };
 
