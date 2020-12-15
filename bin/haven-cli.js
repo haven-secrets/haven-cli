@@ -1,11 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import {
-  listGroupsForUser,
-  getAllHavenUsers,
-  putSecret,
-  getSecret,
-  getAllSecrets,
   addUser,
   addUserToGroups,
   revokeUser,
@@ -19,6 +14,10 @@ import fetchLogsCli from "../src/commands/fetchLogs.js";
 import createProjectCli from "../src/commands/createProject.js";
 import deleteProjectCli from "../src/commands/deleteProject.js";
 import getSecretCli from "../src/commands/getSecret.js";
+import putSecretCli from "../src/commands/putSecret.js";
+import listGroupsForUserCli from "../src/commands/listGroupsForUser.js";
+import getAllHavenUsersCli from "../src/commands/getAllHavenUsers.js";
+import getAllSecretsCli from "../src/commands/getAllSecrets.js";
 
 program.version("0.0.1");
 
@@ -47,11 +46,45 @@ program
   });
 
 program
-  .command("t")
-  .alias("teardown")
-  .description("Teardown Haven Secrets Manager")
+  .command("g")
+  .alias("getSecret")
+  .description(
+    "Get latest secret version by default or specify specific version"
+  )
   .action(() => {
-    teardown();
+    getSecretCli();
+  });
+
+program
+  .command("ga")
+  .alias("getAllSecrets")
+  .description("Get the latest secrets for a project's environment")
+  .action(() => {
+    getAllSecretsCli();
+  });
+
+program
+  .command("p")
+  .alias("putSecret")
+  .description("Create or update a secret")
+  .action(() => {
+    putSecretCli();
+  });
+
+program
+  .command("lg")
+  .alias("listGroupsForUser")
+  .description("List all groups for a user")
+  .action(() => {
+    listGroupsForUserCli();
+  });
+
+program
+  .command("gh")
+  .alias("getAllHavenUsers")
+  .description("Get all Haven Users")
+  .action(() => {
+    getAllHavenUsersCli();
   });
 
 program
@@ -63,13 +96,11 @@ program
   });
 
 program
-  .command("g")
-  .alias("getSecret")
-  .description(
-    "Get latest secret version by default or specify specific version"
-  )
+  .command("t")
+  .alias("teardown")
+  .description("Teardown Haven Secrets Manager")
   .action(() => {
-    getSecretCli();
+    teardown();
   });
 
 program.parse(process.argv);
