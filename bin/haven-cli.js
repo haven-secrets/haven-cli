@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import {
-  addUser,
-  addUserToGroups,
+  // addUser,
+  // addUserToGroups,
   revokeUser,
   revokeUserFromGroups,
   getAllHavenUsersAndGroups,
@@ -19,6 +19,8 @@ import putSecretCli from "../src/commands/putSecret.js";
 import listGroupsForUserCli from "../src/commands/listGroupsForUser.js";
 import getAllHavenUsersCli from "../src/commands/getAllHavenUsers.js";
 import getAllSecretsCli from "../src/commands/getAllSecrets.js";
+import addUserCli from "../src/commands/addUser.js";
+import addUserToGroupsCli from "../src/commands/addUserToGroups.js";
 
 program.version("0.0.1");
 
@@ -110,6 +112,22 @@ program
   .description("Teardown Haven Secrets Manager")
   .action(() => {
     teardown();
+  });
+
+program
+  .command("au")
+  .alias("addUser")
+  .description("Add User")
+  .action(() => {
+    addUserCli();
+  });
+
+program
+  .command("ag")
+  .alias("addUserToGroups")
+  .description("Add User")
+  .action(() => {
+    addUserToGroupsCli();
   });
 
 program.parse(process.argv);
