@@ -8,6 +8,7 @@ import {
   getAllHavenUsersAndGroups,
   teardown,
   setup,
+  userSetup,
 } from "haven-secrets-core";
 
 import fetchLogsCli from "../src/commands/fetchLogs.js";
@@ -27,6 +28,14 @@ program
   .description("Setup Haven Secrets Manager")
   .action(() => {
     setup();
+  });
+
+program
+  .command("us")
+  .alias("userSetup")
+  .description("Setup Haven Secrets User")
+  .action(() => {
+    userSetup();
   });
 
 program
