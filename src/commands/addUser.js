@@ -10,7 +10,7 @@ const addUserCli = async () => {
       {
         type: "text",
         name: "userName",
-        message: "What would you like this user named?",
+        message: "What would you like to name this user?",
         validate: (userName) =>
           /^\S+$/i.test(userName)
             ? true

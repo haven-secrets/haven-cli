@@ -24,7 +24,7 @@ const addUserToGroupsCli = async () => {
         choices: readableGroups,
       },
     ]);
-    const selectedGroups = response.groups.map((index) => havenGroups[index]);
+    const selectedGroups = response.groups.map((index) => `HavenSecrets${readableGroups[index]}Group`);
     await addUserToGroups(response.userName, ...selectedGroups);
     console.log(`Successfully added ${response.userName} to the following groups: ${selectedGroups.join(", ")}`);
   })();

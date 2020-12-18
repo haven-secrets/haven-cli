@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import {
-  // addUser,
-  // addUserToGroups,
   revokeUser,
   revokeUserFromGroups,
   getAllHavenUsersAndGroups,
@@ -21,6 +19,8 @@ import getAllHavenUsersCli from "../src/commands/getAllHavenUsers.js";
 import getAllSecretsCli from "../src/commands/getAllSecrets.js";
 import addUserCli from "../src/commands/addUser.js";
 import addUserToGroupsCli from "../src/commands/addUserToGroups.js";
+import revokeUserCli from "../src/commands/revokeUser.js";
+import revokeUserFromGroupsCli from "../src/commands/revokeUserFromGroups.js";
 
 program.version("0.0.1");
 
@@ -125,9 +125,25 @@ program
 program
   .command("ag")
   .alias("addUserToGroups")
-  .description("Add User")
+  .description("Add User to groups")
   .action(() => {
     addUserToGroupsCli();
+  });
+
+program
+  .command("r")
+  .alias("revokeUser")
+  .description("Revoke User")
+  .action(() => {
+    revokeUserCli();
+  });
+
+program
+  .command("rg")
+  .alias("addUserToGroups")
+  .description("Add User")
+  .action(() => {
+    revokeUserFromGroupsCli();
   });
 
 program.parse(process.argv);
