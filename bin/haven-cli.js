@@ -21,6 +21,7 @@ import addUserCli from "../src/commands/addUser.js";
 import addUserToGroupsCli from "../src/commands/addUserToGroups.js";
 import revokeUserCli from "../src/commands/revokeUser.js";
 import revokeUserFromGroupsCli from "../src/commands/revokeUserFromGroups.js";
+import run from "../src/commands/run.js";
 
 program.version("0.0.1");
 
@@ -80,6 +81,16 @@ program
   .description("Create or update a secret")
   .action(() => {
     putSecretCli();
+  });
+
+program
+  .command("r")
+  .alias("run")
+  .description(
+    "Run your application with secrets: project_name, env, start command"
+  )
+  .action(() => {
+    run(...program.args);
   });
 
 program
