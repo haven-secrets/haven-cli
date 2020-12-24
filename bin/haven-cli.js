@@ -84,7 +84,7 @@ program
   });
 
 program
-  .command("r")
+  .command("ru")
   .alias("run")
   .description(
     "Run your application with secrets: project_name, env, start command"

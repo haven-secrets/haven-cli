@@ -1,8 +1,24 @@
 import { spawn } from "child_process";
-import { getAllSecrets } from "haven-secrets-core";
+import { getAllSecrets, userSetup } from "haven-secrets-core";
 import { existsSync } from "fs";
+import havenFileExists from "../utils/havenFileExists.js";
+import getHavenRole from "../utils/getHavenRole.js";
 
 const run = async (_, projectName, environment, ...args) => {
+  if (!havenFileExists()) {
+    console.log(
+      "You are missing a Haven file. Setup the Haven file before running!"
+    );
+    return undefined;
+  }
+
+  if (getHavenRole() === "TemporaryUser") {
+    console.log(
+      "You are using a temporary credential.You need to run userSetup!"
+    );
+    return undefined;
+  }
+
   const [command, ...options] = args;
   const logRedaction = "<Haven found a secret here and redacted it>";
 

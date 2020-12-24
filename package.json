@@ -1,16 +1,36 @@
 {
-  "name": "haven-cli",
+  "name": "haven-secrets-cli",
   "version": "1.0.0",
   "description": "CLI client for Haven Secrets Manager",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "centralized secrets",
+    "secrets management",
+    "aws",
+    "haven",
+    "haven-secrets"
+  ],
+  "contributors": [
+    "Adam Isom <adamisom@hey.com>",
+    "arpodol <arpodol@gmail.com>",
+    "Dan Marino <danmarino1014@gmail.com>",
+    "Rebecca Nguyen <rebecca.nguyen@queensu.ca>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haven-secrets/haven-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haven-secrets/haven-cli/issues"
+  },
   "author": "Haven",
   "license": "MIT",
   "dependencies": {
     "commander": "^6.2.0",
-    "haven-secrets-core": "^1.0.6",
+    "haven-secrets-core": "^1.0.7",
     "prompts": "^2.4.0"
   },
   "bin": {
