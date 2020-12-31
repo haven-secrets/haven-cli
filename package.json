@@ -1,6 +1,6 @@
 {
   "name": "haven-secrets-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI client for Haven Secrets Manager",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^6.2.0",
-    "haven-secrets-core": "^1.0.7",
+    "haven-secrets-core": "^1.0.11",
     "prompts": "^2.4.0"
   },
   "bin": {
