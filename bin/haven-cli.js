@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import {
-  revokeUser,
-  revokeUserFromGroups,
   getAllHavenUsersAndGroups,
   teardown,
   setup,
@@ -30,7 +28,7 @@ program
   .alias("setup")
   .description("Setup Haven Secrets Manager")
   .action(() => {
-    setup();
+    setup(program.args[1]);
   });
 
 program
@@ -151,8 +149,8 @@ program
 
 program
   .command("rg")
-  .alias("addUserToGroups")
-  .description("Add User")
+  .alias("revokeUserFromGroups")
+  .description("Revoke User")
   .action(() => {
     revokeUserFromGroupsCli();
   });
